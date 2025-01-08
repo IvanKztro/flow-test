@@ -22,7 +22,7 @@
 <Dialog.Root bind:open>
 	<Dialog.Trigger>
 		{#snippet child({ props })}
-			<Button size="sm" {...props}>Profile</Button>
+			<Button variant="ghost" {...props} class="w-full justify-start">Profile</Button>
 		{/snippet}
 	</Dialog.Trigger>
 	<Dialog.Content

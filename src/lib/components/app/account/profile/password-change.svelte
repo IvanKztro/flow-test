@@ -180,7 +180,6 @@
 						<div class="ml-auto mt-2 block gap-2">
 							<Button
 								variant="link"
-								class="text-blue-600 "
 								onclick={async () => {
 									await firekitAuth.sendPasswordReset(firekitUser.email as string);
 									toast.success('Password Change Request', {

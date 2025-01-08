@@ -7,7 +7,7 @@
 
 	$effect(() => {
 		if (firekitUser.initialized && firekitUser.isLoggedIn && userData.data) {
-            userStore.set(userData.data)
+			userStore.set(userData.data);
 			validateOnBoarding(userData.data);
 		}
 	});
@@ -28,8 +28,8 @@
 			return !(field in userInfo) || userInfo[field] === '';
 		});
 
-		console.log("onboarding data: ",missingFields.length);
-		if (missingFields.length === 0) goto('/dashboard');
+		console.log('onboarding data: ', missingFields.length);
+		if (missingFields.length === 0) goto('/');
 	}
 </script>
 

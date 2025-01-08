@@ -27,7 +27,7 @@
 				const displayName = `${firstName} ${lastName}`;
 				await firekitAuth.registerWithEmail(email, password, displayName);
 				toast.success('Account created successfully');
-				goto('/dashboard');
+				goto('/');
 			} catch (error) {
 				if (error instanceof Error) {
 					toast.error(error.message);

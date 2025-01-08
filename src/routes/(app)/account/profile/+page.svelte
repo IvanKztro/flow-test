@@ -7,21 +7,20 @@
 	import DisableAds from '$lib/components/app/account/profile/disable-ads.svelte';
 	import DeleteAccount from '$lib/components/app/account/profile/delete-account.svelte';
 	import Sessions from '$lib/components/app/account/profile/sessions.svelte';
-	import { userStore } from '$lib/stores/sessions';
 
-	// let userdata = $state(firekitDoc(`users/${firekitUser.uid}`));
+	let userdata = $state(firekitDoc(`users/${firekitUser.uid}`));
 </script>
 
-{#if $userStore}
-	<Avatar  />
-	<CoverPhoto  />
+{#if userdata.data}
+	<Avatar user={userdata.data} />
+	<CoverPhoto user={userdata.data} />
 	<TwoStepVerification></TwoStepVerification>
-	<DisableAds disableAds={$userStore?.disableAds}></DisableAds>
+	<DisableAds disableAds={userdata.data.disableAds}></DisableAds>
 	<Sessions></Sessions>
 	{#if firekitUser.user?.providerData[0]?.providerId !== 'google.com'}
-		<EmailUser ></EmailUser>
+		<EmailUser user={userdata.data}></EmailUser>
         <PasswordChange></PasswordChange>
 	{/if}
-	<PersonalInfo  />
+	<PersonalInfo user={userdata.data} />
 	<DeleteAccount></DeleteAccount>
 {/if}

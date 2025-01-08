@@ -4,7 +4,7 @@
 	let { children } = $props();
 	$effect(() => {
 		if (firekitUser.initialized && firekitUser.isLoggedIn) {
-			goto('/dashboard');
+			goto('/');
 		}
 	});
 </script>
@@ -14,3 +14,11 @@
 		{@render children()}
 	</main>
 {/if}
+
+<style>
+	main {
+		background: url('/sign-in-bg.svg');
+		background-size: cover;
+		background-position: center;
+	}
+</style>

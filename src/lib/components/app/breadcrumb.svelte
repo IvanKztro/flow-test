@@ -30,9 +30,9 @@
             <Breadcrumb.Item>
                 <!-- Check if it's the last breadcrumb item to render as Page instead of Link -->
                 {#if i === $breadcrumbs.length - 1}
-                    <Breadcrumb.Page>{breadcrumb.name}</Breadcrumb.Page>
+                    <Breadcrumb.Page class="text-xs">{breadcrumb.name}</Breadcrumb.Page>
                 {:else}
-                    <Breadcrumb.Link href={breadcrumb.href}
+                    <Breadcrumb.Link class="text-xs" href={breadcrumb.href}
                         >{breadcrumb.name}</Breadcrumb.Link
                     >
                 {/if}

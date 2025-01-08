@@ -18,7 +18,7 @@
                     <h4 class="text-blue-600" >Advanced security features are available on Enterprise</h4>
 
                 </div>
-                <Button variant="outline" size="icon" class="w-auto px-4 block ml-auto mt-3 flex">
+                <Button variant="default" size="icon" class="w-auto px-4 block ml-auto mt-3 flex">
                     <Sparkles class="size-4" />
                     <span class="">Upgrade</span>
                     </Button>

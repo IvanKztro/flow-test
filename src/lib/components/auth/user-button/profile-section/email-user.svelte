@@ -4,15 +4,14 @@
 	import Input from '$lib/components/ui/input/input.svelte';
 	import { toast } from 'svelte-sonner';
 	import { firekitAuth, firekitUser } from 'svelte-firekit';
-	import { userStore } from '$lib/stores/sessions';
 
-	// let { user } = $props();
+	let { user } = $props();
 
 	let email: string = $state('');
 	let haserror = $state(false);
 
 	$effect(() => {
-		email = $userStore?.email as string;
+		email = user?.email as string;
 	});
 
 	async function handleChangeEmail() {

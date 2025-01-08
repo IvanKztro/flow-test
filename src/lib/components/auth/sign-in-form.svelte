@@ -25,7 +25,7 @@
 				const { email, password } = data;
 				await firekitAuth.signInWithEmail(email, password);
 				toast.success('Signed in successfully');
-				goto('/dashboard');
+				goto('/');
 			} catch (error) {
 				if (error instanceof Error) {
 					toast.error(error.message);

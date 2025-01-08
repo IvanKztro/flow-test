@@ -4,9 +4,8 @@
 	import { Image, ImageUp } from 'lucide-svelte';
 	import { getInitials } from '$lib/utils.js';
 	import { firekitAuth, firekitUploadTask, firekitUser } from 'svelte-firekit';
-	import { userStore } from '$lib/stores/sessions';
 
-	// let { user } = $props();
+	let { user } = $props();
 
 	let imageUrl: string = $state('');
 	let selectedImage: File | null = $state(null);
@@ -17,10 +16,10 @@
 	$effect(() => {
 		if (progress === 100 && uploadTask?.downloadURL) {
 			// setTimeout(() => {
-				firekitAuth.updateUserProfile({
-					displayName: firekitUser.displayName as string,
-					photoURL: uploadTask?.downloadURL
-				});
+			firekitAuth.updateUserProfile({
+				displayName: firekitUser.displayName as string,
+				photoURL: uploadTask?.downloadURL
+			});
 			// }, 3000);
 		}
 	});
@@ -41,21 +40,21 @@
 <div class="border-foreground-200 space-y-5 border-t py-6 first:border-t-0 sm:py-8">
 	<!-- Grid -->
 	<div class="grid gap-y-1.5 sm:grid-cols-12 sm:gap-x-5 sm:gap-y-0">
-		<div class="sm:col-span-4 xl:col-span-3 2xl:col-span-3">
+		<div class="sm:col-span-4 xl:col-span-3 lg:col-span-4 ">
 			<p class="text-foreground-500 inline-block text-sm sm:mt-2.5">Avatar</p>
 		</div>
 		<!-- End Col -->
 
-		<div class="sm:col-span-8 xl:col-span-6">
+		<div class="sm:col-span-8 xl:col-span-6 md:col-span-8">
 			<!-- Logo Upload Group -->
 			<div class="flex flex-wrap items-center gap-3 sm:gap-5">
 				<span
 					class="border-foreground-300 text-foreground-400 flex size-20 shrink-0 items-center justify-center rounded-full border-2 border-dotted"
 				>
 					<Avatar.Root class="size-[70px]">
-						<Avatar.Image src={$userStore?.photoURL} alt="Avatar" />
+						<Avatar.Image src={user?.photoURL} alt="Avatar" />
 						<Avatar.Fallback>
-							{getInitials($userStore?.displayName)}
+							{getInitials(user?.displayName)}
 						</Avatar.Fallback>
 					</Avatar.Root>
 					<!-- <Image /> -->
@@ -63,7 +62,7 @@
 
 				<div class="grow">
 					<div class="flex items-center gap-x-2">
-						<Button onclick={() => inputfile.click()} variant="secondary">
+						<Button onclick={() => inputfile.click()}>
 							<ImageUp />
 							Upload photo
 						</Button>

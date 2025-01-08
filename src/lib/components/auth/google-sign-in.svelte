@@ -9,7 +9,7 @@
 	async function signInWithGoogle() {
 		try {
 			await firekitAuth.signInWithGoogle();
-			await goto('/dashboard');
+			await goto('/');
 		} catch (error) {
 			if (error instanceof Error) {
 				toast.error(error.message);

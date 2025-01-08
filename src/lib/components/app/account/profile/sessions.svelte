@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { presenceService } from "svelte-firekit";
-
-	// import { currentSession, sessionsStore } from '$lib/stores/sessions';
 </script>
 
 <div class="border-foreground-200 space-y-5 border-t py-6 first:border-t-0 sm:py-8">
@@ -16,8 +14,8 @@
 			<section class="flex gap-3 ">
 				<div class="rounded-lg border border-[2px] border-blue-400 px-3 py-2 w-[250px]">
 					<p><span class="font-semibold">Device: </span> {presenceService.currentSession?.deviceId}</p>
-					<!-- <p><span class="font-semibold">IP Address: </span> {presenceService.currentSession?.ip}</p>
-					<p><span class="font-semibold">Location: </span> {presenceService.currentSession?.location}</p> -->
+					<!-- <p><span class="font-semibold">IP Address: </span> {presenceService.currentSession?.ip}</p> -->
+					<!-- <p><span class="font-semibold">Location: </span> {presenceService.currentSession?.location}</p> -->
 					<p><span class="font-semibold">Status: </span> {presenceService.currentSession?.status}</p>
 				</div>
 				{#each presenceService.sessions as session}

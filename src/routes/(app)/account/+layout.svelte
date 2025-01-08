@@ -62,6 +62,5 @@
 		<h1 class="text-lg font-semibold">{getCurrentRoute($page.url.pathname).title}</h1>
 		<p class="text-foreground-500 text-sm">{getCurrentRoute($page.url.pathname).description}</p>
 	</div>
-
 	{@render children()}
 </div>

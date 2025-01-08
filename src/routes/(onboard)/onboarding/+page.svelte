@@ -166,7 +166,7 @@
 				</Form.Field>
 
 				<br />
-				<Form.Button class="ml-auto block">Save</Form.Button>
+				<Form.Button class="ml-auto block" variant="default">Save</Form.Button>
 			</form>
 		{/if}
 	</div>

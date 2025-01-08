@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label/label.svelte';
-	import { userStore } from '$lib/stores/sessions';
 
 	import { ImagePlus } from 'lucide-svelte';
 	import { firekitDocMutations, firekitUploadTask, firekitUser } from 'svelte-firekit';
 
+	let { user } = $props();
 
 	let imageUrl: string = $state('');
 	let selectedImage: File | null = $state(null);
@@ -41,17 +41,17 @@
 >
 	<!-- Grid -->
 	<div class="grid gap-y-1.5 sm:grid-cols-12 sm:gap-x-5 sm:gap-y-0">
-		<div class="sm:col-span-4 xl:col-span-3 2xl:col-span-3">
+		<div class="sm:col-span-4 xl:col-span-3 lg:col-span-4">
 			<Label class="inline-block text-sm text-gray-500 dark:text-neutral-500 sm:mt-2.5">
 				Cover photo
 			</Label>
 		</div>
 		<!-- End Col -->
 
-		<div class="sm:col-span-8 xl:col-span-6">
+		<div class="sm:col-span-8 xl:col-span-4 lg:col-span-8 xl:col-span-6">
 			<!-- Drag 'n Drop -->
 			<div
-				class="mt-2 flex justify-center rounded-xl bg-white {$userStore.coverPhoto
+				class="mt-2 flex justify-center rounded-xl bg-white {user.coverPhoto
 					? ''
 					: 'border border-dashed border-gray-300 p-12'}  dark:border-neutral-600 dark:bg-neutral-800"
 			>
@@ -63,13 +63,13 @@
 					class="sr-only"
 					name="hs-pro-dapcp"
 				/>
-				{#if $userStore?.coverPhoto}
-					<button onclick={() => inputfile.click()}>
-						<img src={$userStore.coverPhoto} alt="logo" class=" rounded-xl dark:hidden" />
+				{#if user?.coverPhoto}
+					<button onclick={() => inputfile.click()} class="  ">
+						<img src={user.coverPhoto} alt="logo" class=" rounded-xl  " />
 					</button>
 				{:else}
 					<div class="text-center">
-						<ImagePlus class="mx-auto size-[120px] text-gray-400 dark:text-neutral-400 " />
+						<ImagePlus class="mx-auto size-8 text-gray-400 dark:text-neutral-400 " />
 
 						<div class="mt-4 flex flex-wrap justify-center text-sm leading-6 text-gray-600">
 							<span class="pe-1 font-medium text-gray-800 dark:text-neutral-200">

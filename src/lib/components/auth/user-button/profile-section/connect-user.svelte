@@ -30,7 +30,7 @@
           </div>
           <Button
             variant="none"
-            class="flex justify-start px-0 hover:border-b-slate-500 hover:border-b-[2px] rounded-none"
+            class="flex justify-start px-0 rounded-none"
           >
             <Plus class="size-4"></Plus>
             Connect account
